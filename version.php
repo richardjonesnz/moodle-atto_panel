@@ -15,20 +15,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto question  version file.
+ * Atto panel  version file.
  *
- * @package    atto_question
+ * @package    atto_panel
  * @copyright  Richard Jones {@link http://richardnz.net/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2017120100;        // The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 2016052300;        // // tested on Moodle 3.1-3.4 only
-$plugin->component = 'atto_question';   // Full name of the plugin (used for diagnostics).
-$plugin->maturity  = MATURITY_BETA;
-// Human readable version information
-$plugin->release   = '1.5.3';  // minor updates
-// Won't be any use without the filter
-$plugin->dependencies = array('filter_simplequestion'=>2017112802);
+$plugin->version   = 2019051900;
+$plugin->requires  = 2017051500;
+$plugin->component = 'atto_panel';
+$plugin->maturity  = MATURITY_ALPHA;
+// Human readable version information.
+$plugin->release   = '1.0';
+// Won't be any use without the filter.
+$plugin->dependencies = array('filter_simplefilter'=>2019051900);

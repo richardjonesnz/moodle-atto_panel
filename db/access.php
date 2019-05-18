@@ -17,7 +17,7 @@
 /**
  * Plugin capabilities
  *
- * @package    atto_question
+ * @package    atto_panel
  * @copyright  Richard Jones {@link http://richardnz.net/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
 
-    'atto/question:visible' => array(
+    'atto/panel:visible' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes' => array(

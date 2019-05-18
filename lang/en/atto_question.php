@@ -15,16 +15,16 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'atto_question', language 'en'.
+ * Strings for component 'atto_panel', language 'en'.
  *
- * @package    atto_question
+ * @package    atto_panel
  * @copyright  Richard Jones {@link http://richardnz.net/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['createquestion'] = 'Create question';
-$string['pluginname'] = 'Question';
-$string['settings'] = 'question';
+$string['createpanel'] = 'Create panel';
+$string['pluginname'] = 'panel';
+$string['settings'] = 'panel';
 $string['browse'] = 'Browse';
 $string['visible'] = 'Visible';
 $string['nothingtoinsert'] = 'Nothing to insert!';
@@ -32,11 +32,11 @@ $string['dialogtitle'] = 'Enter Preferences';
 $string['insert'] = 'Insert';
 $string['cancel'] = 'Cancel';
 $string['enterlinktext'] = 'Enter text for the link';
-$string['defaultlinktext'] = 'Text for link to question';
-$string['defaultlinktext_desc'] = 'Answer the question';
-$string['enterquestionid'] = 'Enter question number';
-$string['defaultquestionid'] = '';
+$string['defaultlinktext'] = 'Text for link to panel';
+$string['defaultlinktext_desc'] = 'Answer the panel';
+$string['enterpanelid'] = 'Enter panel number';
+$string['defaultpanelid'] = '';
 $string['enterdisplaymode'] = ' Display in popup? (check for yes)';
 $string['defaultdisplaymode'] = 'popup';
 $string['displaymode_desc'] = 'Enter "popup" or "embed"';
-$string['question:visible'] = 'Visible';
+$string['panel:visible'] = 'Visible';

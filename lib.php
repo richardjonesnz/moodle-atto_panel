@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Atto button insert question - based on a template by Justin Hunt
+ * Atto button insert panel - based on a template by Justin Hunt
  *
- * @package    atto_question
+ * @package    atto_panel
  * @copyright  Richard Jones {@link http://richardnz.net/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die();
  * Initialise this plugin
  * @param string $elementid
  */
-function atto_question_strings_for_js() {
+function atto_panel_strings_for_js() {
     global $PAGE;
 
 
@@ -37,44 +37,44 @@ function atto_question_strings_for_js() {
                                           'cancel',
                                           'enterlinktext',
                                           'defaultlinktext_desc',
-                                          'enterquestionid',
-                                          'defaultquestionid',
+                                          'enterpanelid',
+                                          'defaultpanelid',
                                           'enterdisplaymode',
                                           'defaultdisplaymode',
                                           'displaymode_desc',
                                           'dialogtitle'),
-                                          'atto_question');
+                                          'atto_panel');
 }
 
 /**
  * Return the js params required for this module.
  * @return array of additional params to pass to javascript init function for this module.
  */
-function atto_question_params_for_js(/*$elementid, $options, $fpoption^*/) {
+function atto_panel_params_for_js(/*$elementid, $options, $fpoption^*/) {
 	global $USER, $COURSE;
 	//coursecontext
-	$coursecontext=context_course::instance($COURSE->id);	
-	
+	$coursecontext=context_course::instance($COURSE->id);
+
 	//usercontextid
 	$usercontextid=context_user::instance($USER->id)->id;
 	$disabled=false;
-	
+
 	//config our array of data
 	$params = array();
 	$params['usercontextid'] = $usercontextid;
 
     // If they don't have permission don't show it
-	if(!has_capability('atto/question:visible', $coursecontext) ){
+	if(!has_capability('atto/panel:visible', $coursecontext) ){
 		$disabled=true;
     }
-        
+
     //add our disabled param
     $params['disabled'] = $disabled;
 
-    // Get the configured start and end tags from Simple question
-     $def_config = get_config('filter_simplequestion');
-     $params['starttag'] = $def_config->starttag; 
-     $params['endtag'] = $def_config->endtag; 
+    // Get the configured start and end tags from Simple panel
+     $def_config = get_config('filter_simplepanel');
+     $params['starttag'] = $def_config->starttag;
+     $params['endtag'] = $def_config->endtag;
     return $params;
 }
 

@@ -1,4 +1,4 @@
-YUI.add('moodle-atto_question-button', function (Y, NAME) {
+YUI.add('moodle-atto_panel-button', function (Y, NAME) {
 
 // This file is part of Moodle - http://moodle.org/
 //
@@ -16,39 +16,39 @@ YUI.add('moodle-atto_question-button', function (Y, NAME) {
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /*
- * @package    atto_question
+ * @package    atto_panel
  * @copyright  Richard Jones {@link http://richardnz.net/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 /**
- * @module moodle-atto_question-button
+ * @module moodle-atto_panel-button
  */
 
 /**
- * Atto text editor question plugin.
+ * Atto text editor panel plugin.
  *
- * @namespace M.atto_question
+ * @namespace M.atto_panel
  * @class button
  * @extends M.editor_atto.EditorPlugin
  */
 
-var COMPONENTNAME = 'atto_question';
-var TEXTLINKCONTROL = 'question_link';
-var QUESTIONIDCONTROL = 'question_number';
+var COMPONENTNAME = 'atto_panel';
+var TEXTLINKCONTROL = 'panel_link';
+var panelIDCONTROL = 'panel_number';
 var DISPLAYMODECONTROL = 'display_mode';
-var LOGNAME = 'atto_question';
+var LOGNAME = 'atto_panel';
 
 var CSS = {
         INPUTSUBMIT: 'atto_media_urlentrysubmit',
         INPUTCANCEL: 'atto_media_urlentrycancel',
         TEXTLINKCONTROL: 'textlinkcontrol',
-        QUESTIONIDCONTROL: 'questionidcontrol',
+        panelIDCONTROL: 'panelidcontrol',
         DISPLAYMODECONTROL: 'displaymodecontrol'
     },
     SELECTORS = {
         TEXTLINKCONTROL: '.textlinkcontrol',
-        QUESTIONIDCONTROL: '.questionidcontrol',
+        panelIDCONTROL: '.panelidcontrol',
         DISPLAYMODECONTROL: '.displaymodecontrol'
     };
 
@@ -59,12 +59,12 @@ var TEMPLATE = '' +
             '{{get_string "enterlinktext" component}}</label>' +
             '<input class="{{CSS.TEXTLINKCONTROL}}" id="{{elementid}}_{{TEXTLINKCONTROL}}"' +
             ' name="{{elementid}}_{{TEXTLINKCONTROL}}" value="{{defaulttextlink}}" />' +
-            '<label for="{{elementid}}_{{QUESTIONIDCONTROL}}">' +
-            '{{get_string "enterquestionid" component}}</label>' +
-            '<input class="{{CSS.QUESTIONIDCONTROL}}" id="{{elementid}}_{{QUESTIONIDCONTROL}}"' +
-            ' name="{{elementid}}_{{QUESTIONIDCONTROL}}" value="{{defaultquestionid}}" />' +
+            '<label for="{{elementid}}_{{panelIDCONTROL}}">' +
+            '{{get_string "enterpanelid" component}}</label>' +
+            '<input class="{{CSS.panelIDCONTROL}}" id="{{elementid}}_{{panelIDCONTROL}}"' +
+            ' name="{{elementid}}_{{panelIDCONTROL}}" value="{{defaultpanelid}}" />' +
             '<br /><br />' +
-            '<input type="checkbox" class="{{CSS.DISPLAYMODECONTROL}}" id="{{elementid}}_{{DISPLAYMODECONTROL}}"' + 
+            '<input type="checkbox" class="{{CSS.DISPLAYMODECONTROL}}" id="{{elementid}}_{{DISPLAYMODECONTROL}}"' +
             '<label for="{{elementid}}_{{DISPLAYMODECONTROL}}">' +
             '{{get_string "enterdisplaymode" component}}</label>' +
             '<br /><br />' +
@@ -72,7 +72,7 @@ var TEMPLATE = '' +
         '</div>' +
     '</form>';
 
-Y.namespace('M.atto_question').Button = Y.Base.create('button', Y.M.editor_atto.EditorPlugin, [], { 
+Y.namespace('M.atto_panel').Button = Y.Base.create('button', Y.M.editor_atto.EditorPlugin, [], {
     /**
      * Initialize the button
      *
@@ -86,14 +86,14 @@ Y.namespace('M.atto_question').Button = Y.Base.create('button', Y.M.editor_atto.
 
         this.addButton({
             icon:'icon',
-            iconComponent: 'atto_question',
+            iconComponent: 'atto_panel',
             callback: this._displayDialogue
         });
     },
 
 
     /**
-     * Get the id of the text link control where we store the link text for the question
+     * Get the id of the text link control where we store the link text for the panel
      *
      * @method _getTextLinkControlName
      * @return {String} the txt for the text link form field
@@ -104,7 +104,7 @@ Y.namespace('M.atto_question').Button = Y.Base.create('button', Y.M.editor_atto.
     },
 
      /**
-     * Display the question Dialogue
+     * Display the panel Dialogue
      *
      * @method _displayDialogue
      * @private
@@ -154,9 +154,9 @@ Y.namespace('M.atto_question').Button = Y.Base.create('button', Y.M.editor_atto.
                 TEXTLINKCONTROL: TEXTLINKCONTROL,
                 component: COMPONENTNAME,
                 defaultflavor: this.get('defaulttextlink'),
-                QUESTIONIDCONTROL: QUESTIONIDCONTROL,
+                panelIDCONTROL: panelIDCONTROL,
                 component: COMPONENTNAME,
-                defaultflavor: this.get('defaultquestionid'),
+                defaultflavor: this.get('defaultpanelid'),
                 //clickedicon: icon
             }));
 
@@ -190,26 +190,26 @@ Y.namespace('M.atto_question').Button = Y.Base.create('button', Y.M.editor_atto.
             //return;
         }
 
-        // get the question number
-        var idcontrol = this._form.one(SELECTORS.QUESTIONIDCONTROL);
+        // get the panel number
+        var idcontrol = this._form.one(SELECTORS.panelIDCONTROL);
         var idvalue = idcontrol.get('value');
 
         // Check is there
         if (!idvalue) {
-            error_message = 'No question id could be found.';
+            error_message = 'No panel id could be found.';
             error_found = true;
             //return;
         }
 
 
-        //  Check is an integer - use this for the question ID
+        //  Check is an integer - use this for the panel ID
         var isnum = /^\d+$/.test(idvalue);
         if (!isnum) {
-            error_message = 'Question id requires an integer value.';
+            error_message = 'panel id requires an integer value.';
             error_found = true;
            // return;
         }
-         
+
         // deal with the display mode
         var displaycontrol = this._form.one(SELECTORS.DISPLAYMODECONTROL);
         var displayvalue = displaycontrol.get('checked');
@@ -219,13 +219,13 @@ Y.namespace('M.atto_question').Button = Y.Base.create('button', Y.M.editor_atto.
             displaytext = 'embed';
         }
 
-        // build content here: {QUESTION} tags and text - or error
+        // build content here: {panel} tags and text - or error
         if (!error_found) {
 
-            content = this.get('starttag') + linkvalue + '|' + idvalue + '|' + displaytext + 
+            content = this.get('starttag') + linkvalue + '|' + idvalue + '|' + displaytext +
                       this.get('endtag');
         } else {
-            content = '{QUESTION:' + error_message + '}';
+            content = '{panel:' + error_message + '}';
         }
 
         this.editor.focus();

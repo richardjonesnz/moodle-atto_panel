@@ -1,5 +1,5 @@
 {
-    "moodle-atto_question-button": {
+    "moodle-atto_panel-button": {
         "requires": [
             "moodle-editor_atto-plugin"
         ]

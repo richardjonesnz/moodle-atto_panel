@@ -1,7 +1,7 @@
 {
-    "name": "moodle-atto_question-button",
+    "name": "moodle-atto_panel-button",
     "builds": {
-        "moodle-atto_question-button": {
+        "moodle-atto_panel-button": {
             "jsfiles": [
                 "button.js"
             ]
