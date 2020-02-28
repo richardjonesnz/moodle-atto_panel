@@ -23,20 +23,15 @@
  */
 
 $string['createpanel'] = 'Create panel';
-$string['pluginname'] = 'panel';
+$string['pluginname'] = 'Insert panel';
 $string['settings'] = 'panel';
 $string['browse'] = 'Browse';
 $string['visible'] = 'Visible';
 $string['nothingtoinsert'] = 'Nothing to insert!';
-$string['dialogtitle'] = 'Enter Preferences';
+$string['dialogtitle'] = 'Add a Panel';
 $string['insert'] = 'Insert';
 $string['cancel'] = 'Cancel';
-$string['enterlinktext'] = 'Enter text for the link';
-$string['defaultlinktext'] = 'Text for link to panel';
-$string['defaultlinktext_desc'] = 'Answer the panel';
-$string['enterpanelid'] = 'Enter panel number';
-$string['defaultpanelid'] = '';
-$string['enterdisplaymode'] = ' Display in popup? (check for yes)';
-$string['defaultdisplaymode'] = 'popup';
-$string['displaymode_desc'] = 'Enter "popup" or "embed"';
+$string['content'] = 'Text for the panel';
+$string['content_desc'] = 'Text to display';
+$string['defaultcontent'] = 'Enter panel text here';
 $string['panel:visible'] = 'Visible';

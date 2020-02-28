@@ -24,11 +24,11 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2019051900;
+$plugin->version   = 2020030100;
 $plugin->requires  = 2017051500;
 $plugin->component = 'atto_panel';
 $plugin->maturity  = MATURITY_ALPHA;
 // Human readable version information.
 $plugin->release   = '1.0';
 // Won't be any use without the filter.
-$plugin->dependencies = array('filter_simplefilter'=>2019051900);
+$plugin->dependencies = array('filter_simplefilter'=>2020022801);

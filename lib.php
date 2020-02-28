@@ -35,13 +35,9 @@ function atto_panel_strings_for_js() {
 
     $PAGE->requires->strings_for_js(array('insert',
                                           'cancel',
-                                          'enterlinktext',
-                                          'defaultlinktext_desc',
-                                          'enterpanelid',
-                                          'defaultpanelid',
-                                          'enterdisplaymode',
-                                          'defaultdisplaymode',
-                                          'displaymode_desc',
+                                          'content',
+                                          'content_desc',
+                                          'defaultcontent',
                                           'dialogtitle'),
                                           'atto_panel');
 }
@@ -51,30 +47,14 @@ function atto_panel_strings_for_js() {
  * @return array of additional params to pass to javascript init function for this module.
  */
 function atto_panel_params_for_js(/*$elementid, $options, $fpoption^*/) {
-	global $USER, $COURSE;
-	//coursecontext
-	$coursecontext=context_course::instance($COURSE->id);
 
-	//usercontextid
-	$usercontextid=context_user::instance($USER->id)->id;
-	$disabled=false;
-
-	//config our array of data
+	//config our array of data.
 	$params = array();
-	$params['usercontextid'] = $usercontextid;
-
-    // If they don't have permission don't show it
-	if(!has_capability('atto/panel:visible', $coursecontext) ){
-		$disabled=true;
-    }
-
-    //add our disabled param
-    $params['disabled'] = $disabled;
 
     // Get the configured start and end tags from Simple panel
-     $def_config = get_config('filter_simplepanel');
-     $params['starttag'] = $def_config->starttag;
-     $params['endtag'] = $def_config->endtag;
+    $def_config = get_config('filter_simplefilter');
+    $params['starttag'] = $def_config->starttag;
+    $params['endtag'] = $def_config->endtag;
     return $params;
 }
 
